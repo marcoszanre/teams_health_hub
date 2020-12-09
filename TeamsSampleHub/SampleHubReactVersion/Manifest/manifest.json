@@ -8,8 +8,7 @@
     "name": "Microsoft",
     "websiteUrl": "https://www.microsoft.com",
     "privacyUrl": "https://www.microsoft.com/privacy",
-    "termsOfUseUrl": "https://www.microsoft.com/termsofuse",
-    "mpnId": "{your mpnID}"
+    "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
   },
   "name": {
     "short": "Sample Hub",
@@ -28,13 +27,13 @@
     {
       "entityId": "Hub",
       "name": "Hub",
-      "contentUrl": "https://{{appdomain}}.azurewebsites.net",
+      "contentUrl": "https://3834cc81869b.ngrok.io.azurewebsites.net",
       "scopes": [ "personal" ]
     },
     {
       "entityId": "Learning",
       "name": "Learning",
-      "contentUrl": "https://{{appdomain}}.azurewebsites.net/learning",
+      "contentUrl": "https://3834cc81869b.ngrok.io.azurewebsites.net/learning",
       "scopes": [ "personal" ]
     }
   ],
@@ -43,11 +42,11 @@
   "*.powerapps.com",    
   "youtu.be",    
   "*.youtube.com",    
-  "{{appDomain}}.azurewebsites.net",    
+  "3834cc81869b.ngrok.io.azurewebsites.net",    
   "token.botframework.com",    
-  "{{spDomain}}.sharepoint.com"],
+  "m365x198847.sharepoint.com"],
    "webApplicationInfo": {
-        "id": "{{clientid}}",
-        "resource": "api://{{appdomain}}.azurewebsites.net/{{clientid}}"
+        "id": "155c77d0-0396-4307-809a-f25852dece6e",
+        "resource": "api://samplehubzanre.azurewebsites.net/155c77d0-0396-4307-809a-f25852dece6e"
     }
 }

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationInsightsResourceId>update your appinsight id</ApplicationInsightsResourceId>
+    <UserSecretsId>45b5019f-b5ad-4a61-a81c-d2c33ad8f3f2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -173,7 +173,7 @@ namespace BrandHome.Helper
                         }
                     }
                 }
-                accessToken = JsonConvert.DeserializeObject<TokenResponse>(responseBody).Access_token;
+                accessToken = JsonConvert.DeserializeObject<TokenResponse>(responseBody).access_token;
                 return accessToken;
             }
             catch (Exception ex)
@@ -194,12 +194,13 @@ namespace BrandHome.Helper
         {
             telemetry.TrackEvent("GetAccessToken User");
             var accessToken = string.Empty;
-            var body = $"assertion={idToken}&requested_token_use=on_behalf_of&grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&client_id={configuration[ClientIdConfigurationSettingsKey]}@{configuration[TenantIdConfigurationSettingsKey]}&client_secret={configuration[AppsecretConfigurationSettingsKey]}&scope=https://graph.microsoft.com/User.Read";
+            var body = $"assertion={idToken}&requested_token_use=on_behalf_of&grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&client_id=155c77d0-0396-4307-809a-f25852dece6e&client_secret=.b--L9x1.mEVeMshm3tF6xeh03ikDdHwu3&scope=https://graph.microsoft.com/.default";
             try
             {
                 var client = clientfactory.CreateClient("GraphWebClient");
                 string responseBody;
-                using (var request = new HttpRequestMessage(HttpMethod.Post, configuration[AzureInstanceConfigurationSettingsKey] + configuration[TenantIdConfigurationSettingsKey] + configuration[AzureAuthUtrlConfigurationSettingsKey]))
+                string requestUri = "https://login.microsoftonline.com/4b4d0184-d0c2-4adf-9c66-7127d7888210/oauth2/v2.0/token";
+                using (var request = new HttpRequestMessage(HttpMethod.Post, requestUri))
                 {
                     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     request.Content = (new StringContent(body, Encoding.UTF8, "application/x-www-form-urlencoded"));
@@ -216,7 +217,7 @@ namespace BrandHome.Helper
                         }
                     }
                 }
-                accessToken = JsonConvert.DeserializeObject<TokenResponse>(responseBody).Access_token;
+                accessToken = JsonConvert.DeserializeObject<TokenResponse>(responseBody).access_token;
                 return accessToken;
             }
             catch (Exception ex)

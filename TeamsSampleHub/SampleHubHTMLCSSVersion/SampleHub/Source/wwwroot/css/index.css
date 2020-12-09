@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 .container {
-    background-color: #47637B;
+    background-color: #51BCA8;
     padding: 0;
 }
 #annoucement {
@@ -43,7 +43,7 @@
 }
 .banner-logo {
     height: 15.625rem;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60.65%, #000000 125%), url('../images/logo-bg-img.svg') no-repeat;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60.65%, #000000 125%), url('../images/hospital-bg.svg') no-repeat;
     background-size: cover;
 }
 .design-logo {
@@ -333,7 +333,7 @@
 .see-more3 {
     font-weight: 500;
     font-size: 0.75rem;
-    color: #A2A5A5;
+    color: #FFFFFF;
     margin: 1rem 1rem 0 0;
     float: right;
 }
@@ -465,7 +465,7 @@
     font-weight: 500;
     font-size: 0.75rem;
     text-align: right;
-    color: #A2A5A5;
+    color: #FFFFFF;
     float: right;
     margin: 1rem 1rem 0 1rem;
     line-height: 2;
@@ -623,7 +623,7 @@
     .carousel-indicators li {
         width: 0.438rem;
         height: 0.438rem;
-        background: #C4C4C4;
+        background: #FFFFFF;
         border-radius: 50%;
         border: none;
     }

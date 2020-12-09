@@ -1,5 +1,5 @@
 
-const apiendpoint="{{apiendpoint}}";
+const apiendpoint="https://samplehubapi.contoso.xyz/";
 export const AnnouncementAdaptiveCardDetails =
   `${apiendpoint}samplehub/AnnouncementAdaptiveCardDetails`;
 export const TeamsConfig =

@@ -49,15 +49,15 @@ function getUserInfo(principalName) {
                 let hrs = myDate.getHours();
                 let greet;
                 if (hrs < 12) {
-                    greet = 'Good Morning, ';
+                    greet = 'Bom dia, ';
                     $('#banner').css('background-image', "url('../images/gudmorning.png')");
                 }
                 else if (hrs >= 12 && hrs <= 17) {
-                    greet = 'Good Afternoon, ';
+                    greet = 'Boa tarde, ';
                     $('#banner').css('background-image', "url('../images/gudafternoon.png')");
                 }
                 else if (hrs >= 17 && hrs <= 24) {
-                    greet = 'Good Evening, ';
+                    greet = 'Boa noite, ';
                     $('#banner').css('background-image', "url('../images/gudevening.png')");
                 }
                 $('#greet').text(greet + userNameArray[0] + '!');
@@ -104,9 +104,10 @@ function getShiftDetails(objectId) {
         let shift = graphTemp.find(s => (s.userId === objectId) && ((s.sharedShift.startDateTime <= dateTimeNow && s.sharedShift.endDateTime >= dateTimeNow) || s.sharedShift.startDateTime >= dateTimeNow));
         if (shift) {
             if (shift.sharedShift.startDateTime >= dateTimeNow) {
-                $('#tasksCount').text('Your next shift is:');
-                $('#tasks').hide();
-                $('#survey').hide();
+                $('#tasksCount').text('Seu próximo turno será:');
+                getTaskDetails();
+                $('#tasks').show();
+                $('#survey').show();
             }
             else {
                 getTaskDetails();
@@ -194,14 +195,14 @@ function getTeamsConfiguration() {
         },
         success: function (response) {
             if (response !== null) {
-                $('#payStubs').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.payStubsAppId + "/payslipsviewer');");
-                $('#benefits').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.benefitsAppId + "/benefits');");
-                $('#rewards').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.rewardsAppId + "/rewards');");
-                $('#kudos').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.kudosAppId + "/kudos');");
-                $('#news,#newsLink1,#newsLink2,#newsLink3').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.newsAppId + "/news');");
+                $('#payStubs').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.payStubsAppId + "/acd29363-7cd6-4da8-8fa0-e75751122342');");
+                $('#benefits').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.benefitsAppId + "/f8d2b107-a641-45f9-8dc8-2fda8bc5d956');");
+                $('#rewards').attr('onclick', "microsoftTeams.executeDeepLink('https://teams.microsoft.com/l/chat/0/0?users=28:bbfdcc02-f75b-47fa-8de9-752b79370a3b');");
+                $('#kudos').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.kudosAppId + "/Give');");
+                $('#news,#newsLink1,#newsLink2,#newsLink3').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.newsAppId + "/News');");
                 $('#shifts').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.shiftsAppId + "/schedule');");
-                $('#survey').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.surveyAppId + "/surveys');");
-                $('#report').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.reportAppId + "/report');");
+                $('#survey').attr('onclick', "microsoftTeams.executeDeepLink('" + response.deepLinkBaseUrl + response.surveyAppId + "/Feedback');");
+                $('#report').attr('onclick', "microsoftTeams.executeDeepLink('https://teams.microsoft.com/l/entity/26bc2873-6023-480c-a11b-76b66605ce8c/_djb2_msteams_prefix_3199412298?context=%7B%22subEntityId%22%3Anull%2C%22channelId%22%3A%2219%3A5be74ea179444b03add6f4a9b327c326%40thread.tacv2%22%7D&groupId=69df8401-5264-4322-bf30-c6c9d8058a7a&tenantId=4b4d0184-d0c2-4adf-9c66-7127d7888210');");
             } else {
                 console.log("Something went wrong");
             }
@@ -244,13 +245,13 @@ function loadTeamMembers(mailId) {
                             return false;
                         }
                     });
-                    $('#groupChat').attr('onclick', "microsoftTeams.executeDeepLink('" + chatUrl + groupEmail.toString() + "&topicName=" + encodeURIComponent("On-Shift Crew") + "&message=Hi');");
-                    $.each(newMembers, function (i, item) {
+                    $('#groupChat').attr('onclick', "microsoftTeams.executeDeepLink('" + chatUrl + groupEmail.toString() + "&topicName=" + encodeURIComponent("Turno") + "&message=Olá');");
+                    /*$.each(newMembers, function (i, item) {
                         $('#newMemberName' + i).text(item.givenName);
                         $('#newMemberDesignation' + i).text(item.jobTitle);
                         $('#newMemberPicture' + i).attr('src', item.profilePhotoUrl);
                         $('#newMemberChat' + i).attr('onclick', "microsoftTeams.executeDeepLink('" + chatUrl + item.userPrincipalName + "');");
-                    });
+                    });*/
                 }
             },
             failure: function (response) {
@@ -269,12 +270,14 @@ function loadAnnoucement() {
         type: "GET",
         url: "/AnnouncementAdaptiveCardDetails",
         contentType: "application/json; charset=utf-8",
+        accepts: "application/json",
         beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Bearer " + idToken);
         },
         dataType: "json",
         success: function (response) {
             if (response !== null) {
+                console.log(response);
                 let data = response.value;
                 let counter = 0;
                 let rowKey;
@@ -328,6 +331,9 @@ function loadNewsData() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+
+            console.log(response);
+
             $('#newsTitle1').text(response.value[0].title);
             $('#newsDescription1').text(response.value[0].description);
             $('#newsTitle2').text(response.value[1].title);

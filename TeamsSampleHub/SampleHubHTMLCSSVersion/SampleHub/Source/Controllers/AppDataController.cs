@@ -141,10 +141,11 @@ namespace BrandHome.Controllers
         [HttpGet("GetUserAccessToken")]
         public async Task<ActionResult<string>> GetUserAccessToken()
         {
-            this.telemetry.TrackEvent("GetUserAccessToken");
+            telemetry.TrackEvent("GetUserAccessToken");
             try
-            {   var idToken=Request.Headers["Authorization"].ToString()?.Split(" ")[1];
-                return await this.graph.GetAccessTokenOnBehalfUserAsync(idToken);
+            {   
+                var idToken=Request.Headers["Authorization"].ToString()?.Split(" ")[1];
+                return await graph.GetAccessTokenOnBehalfUserAsync(idToken);
             }
             catch (Exception ex)
             {

@@ -12,6 +12,6 @@ namespace BrandHome.Models
         /// <summary>
         /// Gets or sets Access token
         /// </summary>
-        public string Access_token { get; set; }
+        public string access_token { get; set; }
     }
 }

@@ -62,7 +62,7 @@ function getServerSideToken(clientSideToken) {
     return new Promise((resolve, reject) => {
 
         microsoftTeams.getContext((context) => {
-            var scopes = ["https://graph.microsoft.com/User.Read"];
+            // var scopes = ["https://graph.microsoft.com/User.Read"];
             fetch('/GetUserAccessToken', {
                 method: 'get',
                 headers: {
@@ -89,8 +89,8 @@ function getServerSideToken(clientSideToken) {
                         getShiftDetails(context.userObjectId);
                         loadTeamMembers(context.userPrincipalName);
                         getTeamsConfiguration();
-                        loadNewsData();
-                         loadAnnoucement();
+                        // loadNewsData();
+                        // loadAnnoucement();
                     }
                 });
         });

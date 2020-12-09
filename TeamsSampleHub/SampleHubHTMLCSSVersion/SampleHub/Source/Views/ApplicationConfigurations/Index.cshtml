@@ -21,7 +21,7 @@
     </script>
     <script src="~/js/Index.js"></script>
     <script src="~/js/home.js"></script>
-    <title>Sample Hub</title>
+    <title>Hospital</title>
 </head>
 <body>
     <button onclick="homeLogin()" id="login" style="display:none;">Login</button>
@@ -29,8 +29,8 @@
     <div class="container" id="content" style="display:none;">
         <div class="banner-logo">
             <div class="new-logo-banner">
-                <img src="~/images/logo2.svg" alt="logo" class="design-logo">
-                <div class="design-logo-title">Contoso</div>
+                <img src="~/images/hospital-logo.svg" alt="logo" class="design-logo">
+                <div class="design-logo-title">Hospital</div>
             </div>
         </div>
         <div id="banner" class="wish-bg">
@@ -81,20 +81,20 @@
                 </div>
                 <span class="cd2-time time2" id="taskDueDate2"></span>
             </div>
-            <div class="see-more pointer" style="display:none" id="seemoretasks">See more Tasks</div>
+            <div class="see-more pointer" style="display:none" id="seemoretasks">Ver tarefas</div>
         </div>
         <div class="feedback pointer" id="survey">
-            <img src="~/images/How you feeling 2.svg" alt="how are feeling" class="hw-are-u-feeling" />
+            <img src="~/images/shift-feedback-new.svg" alt="how are feeling" class="hw-are-u-feeling" />
         </div>
         <div class="percentages pointer" id="report">
             <div class="ht">
-                <div class="percen-head">ContosoTown Shop 246</div>
-                <div class="see-more2">See more</div>
+                <div class="percen-head">Índice de Ocupação</div>
+                <div class="see-more2">Veja mais</div>
             </div>
             <div class="centage-block">
                 <div class="row custom-row vertical rounded">
                     <div class="pro-card">
-                        <span class="percentage-head">Store Sales</span>
+                        <span class="percentage-head">UTI</span>
                         <div class="progress-bar">
                             <div class="progress-track">
                                 <div class="progress-fill bg-red">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="pro-card">
-                        <span class="percentage-head">Cust Sat</span>
+                        <span class="percentage-head">COVID</span>
                         <div class="progress-bar">
                             <div class="progress-track">
                                 <div class="progress-fill bg-gray">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="pro-card">
-                        <span class="percentage-head">My Sales</span>
+                        <span class="percentage-head">Internação</span>
                         <div class="progress-bar">
                             <div class="progress-track">
                                 <div class="progress-fill bg-gray">
@@ -129,14 +129,14 @@
                 </div>
             </div>
         </div>
-        <div class="announcement">
+        @*<div class="announcement">
             <div class="an-head">Announcements</div>
             <div class="ann-img pointer" id="annoucement">
             </div>
-        </div>
+        </div>*@
         <div class="working">
-            <div class="working-head">Working Now</div>
-            <div class="start-cht pointer" id="groupChat">Start chat</div>
+            <div class="working-head">No mesmo turno</div>
+            <div class="start-cht pointer" id="groupChat">Iniciar chat</div>
             <div class="working-img">
                 <div class="avatars">
                     <span class="ava">
@@ -162,64 +162,65 @@
                 </div>
             </div>
         </div>
-        <div class="new-team">New Team Members</div>
+        <div class="new-team">Plantonistas</div>
         <div class="row custom-row">
             <div class="profile-card">
                 <div class="card3">
-                    <img class="card-img-top img-top" alt="Card image cap" width="400" id="newMemberPicture0">
+                    <img class="card-img-top img-top" src="~/images/lidiaPicture.png" alt="Card image cap" width="400" id="newMemberPicture0">
                     <div class="card-body cb">
-                        <h4 class="card-title ct mb-0" id="newMemberName0"></h4>
-                        <p class="card-text designation" id="newMemberDesignation0"></p>
+                        <h4 class="card-title ct mb-0" id="newMemberName0">Lidia</h4>
+                        <p class="card-text designation" id="newMemberDesignation0">Enfermeira Chefe</p>
                     </div>
-                    <a id="newMemberChat0" class="btn hi pointer">Say hi</a>
+                    <a id="newMemberChat0" onclick="microsoftTeams.executeDeepLink('https://teams.microsoft.com/l/chat/0/0?users=LidiaH@M365x198847.OnMicrosoft.com');" class="btn hi pointer">Chat</a>
                 </div>
             </div>
             <div class="profile-card">
                 <div class="card3">
-                    <img class="card-img-top img-top" alt="Card image cap" width="400" id="newMemberPicture1">
+                    <img class="card-img-top img-top" src="~/images/pradeepPicture.png" alt="Card image cap" width="400" id="newMemberPicture1">
                     <div class="card-body cb">
-                        <h4 class="card-title ct mb-0" id="newMemberName1"></h4>
-                        <p class="card-text designation" id="newMemberDesignation1"></p>
+                        <h4 class="card-title ct mb-0" id="newMemberName1">Pradeep</h4>
+                        <p class="card-text designation" id="newMemberDesignation1">Clínico Geral</p>
                     </div>
                     <!-- <button class="btn br mr-2 align-self-center">Say hi</button> -->
-                    <a id="newMemberChat1" class="btn hi pointer">Say hi</a>
+                    <a onclick="microsoftTeams.executeDeepLink('https://teams.microsoft.com/l/chat/0/0?users=PradeepG@M365x198847.OnMicrosoft.com');" id="newMemberChat1" class="btn hi pointer">Chat</a>
                 </div>
             </div>
         </div>
         <div class="news">
-            <div class="news-head">News</div>
-            <div class="see-more3 pointer" id="news">See more</div>
+            <div class="news-head">Notícias</div>
+            <div class="see-more3 pointer" id="news">Veja mais</div>
             <div class="carousel3">
                 <div id="news" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner car-card">
                         <div class="carousel-item active pointer" id="newsLink1">
-                            <div class="car-head" id="newsTitle1">Contoso is donating 500K face masks to hospitals in NYC </div>
-                            <div class="car-date">March 18, 2020</div>
-                            <img class="d-block w-100" src="~/images/news1.jfif" alt="First slide">
+                            <div class="car-head" id="newsTitle1">Campanha de bem-estar Contoso</div>
+                            <div class="car-date">Novembro 18, 2020</div>
+                            <img class="d-block w-100" src="~/images/news-image-1.svg" alt="First slide">
                             <div class="car-desc" id="newsDescription1">
-                                During these tough times, Contoso is stepping up and donating 500K
-                                face masks to hospitals in New York City. Babak
-                                Shammas, the CEO, said “every single one of us in the Contoso family feel like it’s
+                                Durante este período difícil, a Contoso começa sua campanha para promover o bem-estar de nossos funcionários. 
+                                Serão diversas palestras sobre temas de cuidado pessoal e familiar.
+                                Se inscreva em nosso portal e participe.
                             </div>
                         </div>
                         <div class="carousel-item pointer" id="newsLink2">
-                            <div class="car-head" id="newsTitle2">Contoso is donating 500K face masks to hospitals in NYC </div>
-                            <div class="car-date">March 18, 2020</div>
-                            <img class="d-block w-100" src="~/images/news2.png" alt="Second slide">
+                            <div class="car-head" id="newsTitle2">História do mês</div>
+                            <div class="car-date">Novembro 10, 2020</div>
+                            <img class="d-block w-100" src="~/images/news-image-2.svg" alt="Second slide">
                             <div class="car-desc" id="newsDescription2">
-                                During these tough times, Contoso is stepping up and donating 500K
-                                face masks to hospitals in New York City. Babak
-                                Shammas, the CEO, said “every single one of us in the Contoso family feel like it’s
+                                Neste mês, conheça a história de uma das nossas funcionárias mais bem avaliadas
+                                no hospital. Neste artigo, ela irá compartilhar seus segredos e dicas
+                                para que possamos cada vez mais cuidar melhor de nossos pacientes.
                             </div>
                         </div>
                         <div class="carousel-item pointer" id="newsLink3">
-                            <div class="car-head" id="newsTitle3">Contoso is donating 500K face masks to hospitals in NYC </div>
-                            <div class="car-date">March 18, 2020</div>
-                            <img class="d-block w-100" src="~/images/news3.png" alt="Third slide">
+                            <div class="car-head" id="newsTitle3">Benefício viagem</div>
+                            <div class="car-date">Outubro 27, 2020</div>
+                            <img class="d-block w-100" src="~/images/news-image-3.svg" alt="Third slide">
                             <div class="car-desc" id="newsDescription3">
-                                During these tough times, Contoso is stepping up and donating 500K
-                                face masks to hospitals in New York City. Babak
-                                Shammas, the CEO, said “every single one of us in the Contoso family feel like it’s
+                                Sabemos que este ano não está fácil. Entretanto não é por isso
+                                que não devemos planejar um tempo para nos recuperarmos e dedicarmos
+                                um tempo para nossas famílias. Preparemos uma parceria especial para que você possa
+                                agendar férias incríveos. Acesse já o portal de férias, sua saúde importa.
                             </div>
                         </div>
                     </div>
@@ -235,21 +236,21 @@
             <div class="row custom-row">
                 <div class="app-card">
                     <div class="card4 pointer" id="payStubs">
-                        <img class="card-img-top img-top app-img" src="~/images/Paystub.png" alt="Card image cap"
+                        <img class="card-img-top img-top app-img" src="~/images/feedback.png" alt="Card image cap"
                              width="400">
                         <div class="card-body cb">
-                            <h4 class="card-title ct mb-0 app-head">Paystubs</h4>
-                            <p class="card-text designation app-desc">All your pay stubs organized here.</p>
+                            <h4 class="card-title ct mb-0 app-head">Feedback</h4>
+                            <p class="card-text designation app-desc">Compartilhe o feedback de clientes.</p>
                         </div>
                     </div>
                 </div>
                 <div class="app-card pointer" id="benefits">
                     <div class="card4">
-                        <img class="card-img-top img-top app-img" src="~/images/Benefits.png" alt="Card image cap"
+                        <img class="card-img-top img-top app-img" src="~/images/notificar.png" alt="Card image cap"
                              width="400">
                         <div class="card-body cb">
-                            <h4 class="card-title ct mb-0 app-head">Benefits</h4>
-                            <p class="card-text designation app-desc">Access all your benefits.</p>
+                            <h4 class="card-title ct mb-0 app-head">Notificar Médico</h4>
+                            <p class="card-text designation app-desc">Avise o médico sobre um paciente querendo falar.</p>
                         </div>
                     </div>
                 </div>
@@ -257,28 +258,28 @@
             <div class="row custom-row">
                 <div class="app-card2 pointer" id="rewards">
                     <div class="card4">
-                        <img class="card-img-top img-top app-img" src="~/images/Rewards.png" alt="Card image cap"
+                        <img class="card-img-top img-top app-img" src="~/images/reportIncident.png" alt="Card image cap"
                              width="400">
                         <div class="card-body cb">
-                            <h4 class="card-title ct mb-0 app-head">Rewards</h4>
-                            <p class="card-text designation app-desc">Learn about special offers available to you.</p>
+                            <h4 class="card-title ct mb-0 app-head">Reportar</h4>
+                            <p class="card-text designation app-desc">Reportar Incidente à equipe de inspeção.</p>
                         </div>
                     </div>
                 </div>
                 <div class="app-card2 pointer" id="kudos">
                     <div class="card4">
-                        <img class="card-img-top img-top app-img" src="~/images/Kudos.png" alt="Card image cap"
+                        <img class="card-img-top img-top app-img" src="~/images/benefits-2.png" alt="Card image cap"
                              width="400">
                         <div class="card-body cb">
-                            <h4 class="card-title ct mb-0 app-head">Kudos</h4>
-                            <p class="card-text designation app-desc">Recognize your coworkers.</p>
+                            <h4 class="card-title ct mb-0 app-head">Recursos Humanos</h4>
+                            <p class="card-text designation app-desc">Acesse o portal de recursos humanos.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="bt-brand">
-            <img src="~/images/Bottom Brand Home.svg" alt="Brand" class="brand-img">
+            <img src="~/images/bottom-brand-new.svg" alt="Brand" class="brand-img">
         </div>
     </div>
 </body>

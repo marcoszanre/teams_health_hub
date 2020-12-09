@@ -70,7 +70,7 @@ namespace BrandHome.Helper
                         throw new Exception(responseBody);
                     }
 
-                    return JsonConvert.DeserializeObject<TokenResponse>(responseBody).Access_token;
+                    return JsonConvert.DeserializeObject<TokenResponse>(responseBody).access_token;
                 }
             }
         }
